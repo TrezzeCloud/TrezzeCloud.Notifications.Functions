@@ -1,0 +1,11 @@
+.git
+.tools
+.validation
+**/bin
+**/obj
+**/local.settings.json
+**/*.env
+**/*.local.json
+**/*.local.bicepparam
+.vs
+TestResults

@@ -1,0 +1,17 @@
+**/bin/
+**/obj/
+.vs/
+.idea/
+*.user
+*.suo
+TestResults/
+*.trx
+**/local.settings.json
+.env
+*.env
+*.local.json
+*.local.bicepparam
+infra/azure/main.json
+infra/azure/main.parameters.example.json
+.tools/
+.validation/

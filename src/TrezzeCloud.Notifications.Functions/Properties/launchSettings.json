@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "TrezzeCloud.Notifications.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7175",
+      "launchBrowser": false
+    }
+  }
+}
