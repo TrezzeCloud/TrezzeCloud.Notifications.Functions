@@ -2,7 +2,7 @@
 
 Repositório próprio da solução serverless de notificações da Fase 3. Substitui o host legado `TrezzeCloud.NotificationsAPI`. O código usa Azure Functions v4, .NET 10 isolated worker e RabbitMQTrigger. O envio de e-mails é simulado no logger; não há envio SMTP real.
 
-Endereço previsto: [TrezzeCloud/TrezzeCloud.Notifications.Functions](https://github.com/TrezzeCloud/TrezzeCloud.Notifications.Functions). O repositório é inicialmente local; criar/publicar o remoto é uma etapa separada.
+Repositório: [TrezzeCloud/TrezzeCloud.Notifications.Functions](https://github.com/TrezzeCloud/TrezzeCloud.Notifications.Functions).
 
 ## Estrutura
 
@@ -179,4 +179,4 @@ A Function precisa alcançar RabbitMQ em AMQP/AMQPS, com DNS, TLS, vhost e permi
 
 O projeto e namespace agora são `TrezzeCloud.Notifications.Functions`, sem underscores. A NotificationsAPI antiga permanece como legado e não deve ser implantada. Os contratos foram copiados para tornar este repositório independente; as cópias usadas pelo legado continuam na origem.
 
-As dependências e a configuração condicional de telemetria existentes foram preservadas durante a extração. Application Insights permanece opcional; esta migração não implementa observabilidade. Validar/implantar no Azure, publicar a imagem e criar o repositório remoto exigem ações externas autorizadas separadamente.
+As dependências e a configuração condicional de telemetria existentes foram preservadas durante a extração. Application Insights permanece opcional; esta migração não implementa observabilidade. Permanecem como ações externas a publicação da imagem, a implantação no Azure, a conectividade com RabbitMQ e a configuração das permissões e dos recursos externos.
