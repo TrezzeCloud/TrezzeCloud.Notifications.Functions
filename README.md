@@ -2,7 +2,7 @@
 
 Repositório próprio da solução serverless de notificações da Fase 3. Substitui o host legado `TrezzeCloud.NotificationsAPI`. O código usa Azure Functions v4, .NET 10 isolated worker e RabbitMQTrigger. O envio de e-mails é simulado no logger; não há envio SMTP real.
 
-Endereço previsto: [GuiMassi/TrezzeCloud.Notifications.Functions](https://github.com/GuiMassi/TrezzeCloud.Notifications.Functions). O repositório é inicialmente local; criar/publicar o remoto é uma etapa separada.
+Endereço previsto: [TrezzeCloud/TrezzeCloud.Notifications.Functions](https://github.com/TrezzeCloud/TrezzeCloud.Notifications.Functions). O repositório é inicialmente local; criar/publicar o remoto é uma etapa separada.
 
 ## Estrutura
 
