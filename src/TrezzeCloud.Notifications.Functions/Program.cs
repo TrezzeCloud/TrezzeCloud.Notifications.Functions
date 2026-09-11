@@ -8,6 +8,8 @@ using OpenTelemetry;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
+Datadog.Serverless.CompatibilityLayer.Start();
+
 builder.ConfigureFunctionsWebApplication();
 
 if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPLICATIONINSIGHTS_CONNECTION_STRING")))
