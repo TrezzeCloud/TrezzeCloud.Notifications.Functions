@@ -127,7 +127,8 @@ Os testes usam logger em memória e não precisam de RabbitMQ/Azure. A descobert
 - Function App Linux com imagem de container parametrizada e identidade gerenciada SystemAssigned;
 - app settings do worker, Storage e RabbitMQ;
 - integração opcional com subnet existente;
-- parâmetro seguro opcional para Application Insights existente, desativado por padrão. Nenhum recurso ou stack de observabilidade é criado.
+- parâmetro seguro opcional para Application Insights existente, desativado por padrão;
+- integração da aplicação com Datadog por meio de `Datadog.AzureFunctions` e da Serverless Compatibility Layer, com credenciais fornecidas por configuração segura do ambiente.
 
 O plano Premium foi escolhido por compatibilidade com RabbitMQTrigger. Veja [RabbitMQ bindings](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-rabbitmq). A configuração de container segue a [documentação de infraestrutura de Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code?tabs=vs-code).
 
@@ -175,8 +176,8 @@ O exemplo `.bicepparam` lê `RABBITMQ_CONNECTION` em tempo de execução, sem va
 
 A Function precisa alcançar RabbitMQ em AMQP/AMQPS, com DNS, TLS, vhost e permissões de consumo corretos. Para um broker privado em Kubernetes, use integração VNet e endpoint privado roteável, com subnet delegada a Microsoft.Web/serverFarms. O ClusterIP e o nome `rabbitmq` do cluster/Compose não são diretamente acessíveis do Azure. Configure conectividade entre redes ou VPN quando o broker estiver local; não publique a interface de management na internet. A subnet opcional não cria rotas, DNS, VPN ou o endpoint do broker.
 
-## Migração e limites
+## Migração e observabilidade
 
 O projeto e namespace agora são `TrezzeCloud.Notifications.Functions`, sem underscores. A NotificationsAPI antiga permanece como legado e não deve ser implantada. Os contratos foram copiados para tornar este repositório independente; as cópias usadas pelo legado continuam na origem.
 
-As dependências e a configuração condicional de telemetria existentes foram preservadas durante a extração. Application Insights permanece opcional; esta migração não implementa observabilidade. Permanecem como ações externas a publicação da imagem, a implantação no Azure, a conectividade com RabbitMQ e a configuração das permissões e dos recursos externos.
+A Function está instrumentada para Datadog por meio de `Datadog.AzureFunctions` e da inicialização da Serverless Compatibility Layer. Application Insights permanece opcional e nenhuma chave Datadog é versionada.
